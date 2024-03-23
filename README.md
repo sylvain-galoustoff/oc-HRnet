@@ -31,4 +31,4 @@ The project is initialized with several SASS style sheets. Only the `index.scss`
 * typo.scss : Provides the basic style for typography, mainly the font used and the definitions of the titles from h1 to h6. The Roboto font is set as the default, loaded from Google Fonts. (See [Webfont loader](https://github.com/typekit/webfontloader) for the font installation process)
  
 ### Routing
-* The BrowserRouter component wraps the entire application. Configure the routes in the App.jsx file.
+The BrowserRouter component wraps the entire application. Configure the routes in the App.jsx file.
