@@ -1,4 +1,6 @@
 import { IoCheckmark } from "react-icons/io5";
+import unitedStates from "../../data/unitedStates";
+import { DataSearch } from "sg-ui-kit";
 
 function AddEmployee() {
   return (
@@ -39,9 +41,9 @@ function AddEmployee() {
                 </div>
               </div>
               <div className="form-group-inline">
-                <div className="form-group">
+                <div className="form-group addon-right">
                   <label htmlFor="state">State</label>
-                  <input type="text" id="state" />
+                  <DataSearch data={unitedStates} id="state" addonClass="addon" resultClass="state-search-result" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="zipcode">Zip code</label>

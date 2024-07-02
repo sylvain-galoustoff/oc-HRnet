@@ -91,3 +91,17 @@ nav {
     margin-bottom: $marge*4;
   }
 }
+
+.state-search-result {
+  @include card;
+  box-shadow: 0 0 5px rgba($text, .25);
+
+  p {
+    padding: $marge*2;
+
+    &:hover {
+      background-color: $primary;
+      color: $bgAlt;
+    }
+  }
+}

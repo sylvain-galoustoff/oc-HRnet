@@ -43,6 +43,32 @@ a.button {
 }
 
 /* FORMS */
+[type="text"] {
+  font-family: $font;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: rgba($textAlt, .15);
+  border: 2px solid $textAlt;
+  border-radius: $corner;
+  padding: $marge*4 $marge*6 ;
+  color: $textAlt;
+  @include trans;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+.addon {
+  padding: 0 $marge*2;
+  background-color: rgba($textAlt, .15);
+  border: 2px solid $textAlt;
+  @include trans;
+}
+
 legend {
   font-size: 2rem;
   font-weight: 700;
@@ -64,28 +90,30 @@ legend {
   display: flex;
   flex-direction: column;
   gap: $marge;
+
+  &:focus-within {
+    .addon {
+      border-color: $primary;
+      background-color: transparent;
+    }
+  }
+
+  &.addon-right {
+    [type="text"] {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .addon {
+      border-top-right-radius: $corner;
+      border-bottom-right-radius: $corner;
+      border-left: none;
+    }
+  }
 }
 
 label {
   font-weight: 700;
   color: $textAlt;
-}
-
-[type="text"] {
-  font-family: $font;
-  font-size: 1rem;
-  font-weight: 700;
-  background-color: rgba($textAlt, .15);
-  border: 2px solid $textAlt;
-  border-radius: $corner;
-  padding: $marge*4 $marge*6 ;
-  color: $textAlt;
-  @include trans;
-
-  &:focus {
-    outline: none;
-    background-color: transparent;
-    border-color: $primary;
-    color: $primary;
-  }
 }
