@@ -1,0 +1,93 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#app {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font;
+  color: $text;
+  background-color: $bg;
+}
+
+#app {
+  display: flex;
+}
+
+aside {
+  width: 300px;
+  background-color: $bgAlt;
+}
+
+main {
+  flex: 1;
+}
+
+.main-content {
+  padding: 25px;
+  height: calc(100% - 90px);
+}
+
+header,
+#main-header {
+  height: 90px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  padding: 25px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $marge*4;
+  }
+}
+
+.navlink {
+  &.active {
+    background-color: $primary;
+    color: $bgAlt;
+
+    &:hover {
+      background-color: darken($primary, 5%);
+    }
+  }
+}
+
+/* ADD */
+.form-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+  gap: $marge*8;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: $marge*4;
+  }
+
+  legend {
+    margin-bottom: $marge*4;
+  }
+}

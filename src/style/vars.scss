@@ -1,3 +1,34 @@
+$font : Arial,
+Helvetica,
+sans-serif;
+
+$marge: 4px;
+$corner: 4px;
+
+$bg: #F5F5FA;
+$bgAlt: #FFFFFF;
+$borderColor: #EDEDED;
+$text: #2E3242;
+$textAlt: #A4A7B2;
+$warning: #F4BE5E;
+$success: #53DF92;
+$danger: #FF808B;
+$bgWarning: #FEF9EF;
+$bgSuccess: #F2FDF7;
+$bgDanger: #FFF3F4;
+$primary: #5E81F4;
+$secondary: #8181A5;
+
 @mixin dev($color: red, $width: 1px) {
   border: $width solid $color;
+}
+
+@mixin trans($time: .15s) {
+  transition: all $time ease-in;
+}
+
+@mixin card() {
+  background-color: $bgAlt;
+  border-radius: $corner;
+  border: 1px solid $borderColor;
 }

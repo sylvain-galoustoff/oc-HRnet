@@ -1,0 +1,91 @@
+/* BUTTONS */
+.button-group {
+  display: flex;
+  gap: $marge*4;
+  justify-content: center;
+}
+
+button,
+a.button {
+  display: flex;
+  gap: $marge;
+  align-items: center;
+  justify-content: center;
+  font-family: $font;
+  font-size: 1rem;
+  font-weight: 700;
+  background: none;
+  border: 2px solid $primary;
+  border-radius: $corner;
+  padding: $marge*4 $marge*6 ;
+  color: $primary;
+  cursor: pointer;
+  @include trans;
+
+  &:focus-visible {
+    outline-color: $primary;
+    outline-offset: $marge;
+  }
+
+  &.primary {
+    background-color: $primary;
+    color: $bgAlt;
+
+    &:hover {
+      background-color: darken($primary, 5%);
+    }
+  }
+}
+
+/* CARDS */
+.card {
+  @include card;
+}
+
+/* FORMS */
+legend {
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba($text, .1);
+  width: 100%;
+  padding-bottom: $marge*2;
+}
+
+.form-group-inline {
+  display: flex;
+  gap: $marge*4;
+
+  .form-group {
+    flex: 1;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $marge;
+}
+
+label {
+  font-weight: 700;
+  color: $textAlt;
+}
+
+[type="text"] {
+  font-family: $font;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: rgba($textAlt, .15);
+  border: 2px solid $textAlt;
+  border-radius: $corner;
+  padding: $marge*4 $marge*6 ;
+  color: $textAlt;
+  @include trans;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+    border-color: $primary;
+    color: $primary;
+  }
+}
