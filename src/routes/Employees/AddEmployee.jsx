@@ -4,10 +4,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import unitedStates from "../../data/unitedStates";
 import { DataSearch } from "sg-ui-kit";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../redux/employeeSlice";
 
 function AddEmployee() {
   const [form, setForm] = useState({
-    id: Date.now(),
+    id: null,
     firstname: "",
     lastname: "",
     birthdate: "",
@@ -18,6 +20,7 @@ function AddEmployee() {
     startdate: "",
     department: "sales",
   });
+  const dispatch = useDispatch();
 
   const inputChange = (e, target) => {
     setForm((prevState) => ({
@@ -47,6 +50,13 @@ function AddEmployee() {
     }));
   };
 
+  const submitForm = (e) => {
+    e.preventDefault();
+    const formCopy = { ...form };
+    formCopy.id = Date.now();
+    dispatch(addEmployee(formCopy));
+  };
+
   return (
     <main>
       <div id="main-header">
@@ -54,7 +64,7 @@ function AddEmployee() {
       </div>
       <div className="main-content" id="add-employee-content">
         <div className="card form-wrapper">
-          <form id="add-form">
+          <form id="add-form" onSubmit={submitForm}>
             <fieldset>
               <legend>Identity</legend>
               <div className="form-group-inline">
