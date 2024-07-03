@@ -1,8 +1,45 @@
+import { useState } from "react";
 import { IoCheckmark } from "react-icons/io5";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import unitedStates from "../../data/unitedStates";
 import { DataSearch } from "sg-ui-kit";
 
 function AddEmployee() {
+  const [form, setForm] = useState({
+    id: Date.now(),
+    firstname: "",
+    lastname: "",
+    birthdate: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    startdate: "",
+    department: "sales",
+  });
+
+  const inputChange = (e, target) => {
+    setForm((prevState) => ({
+      ...prevState,
+      [target]: e.target.value,
+    }));
+  };
+
+  const stateChange = (state) => {
+    setForm((prevState) => ({
+      ...prevState,
+      state,
+    }));
+  };
+
+  const handleBirthdate = (date) => {
+    setForm((prevState) => ({
+      ...prevState,
+      birthdate: date.toISOString(),
+    }));
+  };
+
   return (
     <main>
       <div id="main-header">
@@ -16,15 +53,20 @@ function AddEmployee() {
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="firstname">First name</label>
-                  <input type="text" id="firstname" />
+                  <input
+                    type="text"
+                    id="firstname"
+                    onChange={(e) => inputChange(e, "firstname")}
+                    value={form.firstname}
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="lastname">Last name</label>
-                  <input type="text" id="lastname" />
+                  <input type="text" id="lastname" onChange={(e) => inputChange(e, "lastname")} value={form.lastname} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="birthdate">Date of birth</label>
-                  <input type="text" id="birthdate" />
+                  <DatePicker selected={form.birthdate} onChange={(date) => handleBirthdate(date)} id="birthdate" />
                 </div>
               </div>
             </fieldset>
@@ -33,21 +75,28 @@ function AddEmployee() {
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="street">Street</label>
-                  <input type="text" id="street" />
+                  <input type="text" id="street" onChange={(e) => inputChange(e, "street")} value={form.street} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="city">City</label>
-                  <input type="text" id="city" />
+                  <input type="text" id="city" onChange={(e) => inputChange(e, "city")} value={form.city} />
                 </div>
               </div>
               <div className="form-group-inline">
                 <div className="form-group addon-right">
                   <label htmlFor="state">State</label>
-                  <DataSearch data={unitedStates} id="state" addonClass="addon" resultClass="state-search-result" />
+                  <DataSearch
+                    data={unitedStates}
+                    id="state"
+                    addonClass="addon"
+                    resultClass="state-search-result"
+                    callback={stateChange}
+                    value={form.state}
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="zipcode">Zip code</label>
-                  <input type="text" id="zipcode" />
+                  <input type="text" id="zipcode" onChange={(e) => inputChange(e, "zipcode")} value={form.zipcode} />
                 </div>
               </div>
             </fieldset>

@@ -50,9 +50,13 @@ a.button {
   background-color: rgba($textAlt, .15);
   border: 2px solid $textAlt;
   border-radius: $corner;
-  padding: $marge*4 $marge*6 ;
+  padding: $marge*4 $marge*6;
   color: $textAlt;
   @include trans;
+
+  &::placeholder {
+    color: $textAlt;
+  }
 
   &:focus {
     outline: none;

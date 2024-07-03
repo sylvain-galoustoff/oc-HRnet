@@ -94,7 +94,7 @@ nav {
 
 .state-search-result {
   @include card;
-  box-shadow: 0 0 5px rgba($text, .25);
+  box-shadow: $boxShadow;
 
   p {
     padding: $marge*2;
@@ -104,4 +104,39 @@ nav {
       color: $bgAlt;
     }
   }
+}
+
+/* DATEPICKER */
+/* DATEPICKER */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  background-color: $bgAlt;
+  border-radius: $corner;
+  font-family: $font;
+  border: 1px solid $textAlt;
+  box-shadow: $boxShadow;
+}
+
+.react-datepicker__header {
+  border-bottom: 1px solid $textAlt;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  background-color: $primary;
+  border-radius: $corner;
+  color: $bgAlt;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  border-radius: $corner;
+  color: $text;
 }
