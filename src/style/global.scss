@@ -107,7 +107,6 @@ nav {
 }
 
 /* DATEPICKER */
-/* DATEPICKER */
 .react-datepicker-wrapper {
   width: 100%;
 }
@@ -139,4 +138,8 @@ nav {
 .react-datepicker__year-text:hover {
   border-radius: $corner;
   color: $text;
+}
+
+#startdate {
+  width: 100%;
 }

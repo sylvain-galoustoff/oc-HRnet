@@ -40,6 +40,13 @@ function AddEmployee() {
     }));
   };
 
+  const handleStartDate = (date) => {
+    setForm((prevState) => ({
+      ...prevState,
+      startdate: date.toISOString(),
+    }));
+  };
+
   return (
     <main>
       <div id="main-header">
@@ -105,11 +112,17 @@ function AddEmployee() {
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="startdate">Start date</label>
-                  <input type="text" id="startdate" />
+                  <DatePicker selected={form.startdate} onChange={(date) => handleStartDate(date)} id="startdate" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="department">Department</label>
-                  <input type="text" id="department" />
+                  <select onChange={(e) => inputChange(e, "department")} value={form.department} id="department">
+                    <option value="sales">Sales</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="human">Human ressources</option>
+                    <option value="legal">Legal</option>
+                  </select>
                 </div>
               </div>
             </fieldset>

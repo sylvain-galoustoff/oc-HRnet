@@ -43,7 +43,8 @@ a.button {
 }
 
 /* FORMS */
-[type="text"] {
+[type="text"],
+select {
   font-family: $font;
   font-size: 1rem;
   font-weight: 700;
