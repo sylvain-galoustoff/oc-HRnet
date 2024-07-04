@@ -3,6 +3,7 @@ import AddEmployee from "./Employees/AddEmployee";
 import Employees from "./Employees/Employees";
 import NotFound from "./NotFound/NotFound";
 import Navbar from "../components/Navbar/Navbar";
+import { Toaster } from "sg-ui-kit";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<AddEmployee />} />
         <Route path="/employees" element={<Employees />} />
       </Routes>
+      <Toaster />
     </div>
   );
 }
