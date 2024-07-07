@@ -3,7 +3,7 @@ import { IoCheckmark } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import unitedStates from "../../data/unitedStates";
-import { DataSearch } from "sg-ui-kit";
+import { DataSearch } from "supergalactic-uikit";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../redux/employeeSlice";
 

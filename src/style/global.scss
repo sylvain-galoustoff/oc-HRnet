@@ -35,7 +35,7 @@ main {
 }
 
 .main-content {
-  padding: 25px;
+  padding: $marge*6;
   height: calc(100% - 90px);
 }
 
@@ -142,4 +142,73 @@ nav {
 
 #startdate {
   width: 100%;
+}
+
+/* TOASTER */
+.toaster {
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: $marge*2;
+  padding: $marge*6 $marge*2;
+}
+
+.toast-wrapper {
+  animation: toastAnim 2s ease-out;
+}
+
+.toast {
+  @include card;
+
+  &.danger {
+    .toast-header {
+      background-color: $danger;
+    }
+
+    .toast-body {
+      background-color: $bgDanger;
+    }
+  }
+
+  &.warning {
+    .toast-header {
+      background-color: $warning;
+    }
+
+    .toast-body {
+      background-color: $bgWarning;
+    }
+  }
+
+  &.success {
+    .toast-header {
+      background-color: $success;
+    }
+
+    .toast-body {
+      background-color: $bgSuccess;
+    }
+  }
+}
+
+.toast-header,
+.toast-body {
+  padding: $marge*4;
+}
+
+.toast-header {
+  border-top-left-radius: $corner;
+  border-top-right-radius: $corner;
+  color: $bgAlt;
+  font-weight: 700;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.toast-body {
+  line-height: 1.2;
 }
