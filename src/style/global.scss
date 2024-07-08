@@ -236,8 +236,13 @@ nav {
   }
 
   .tool {
+    color: $text;
+
+    label {
+      color: $text;
+    }
+
     span {
-      color: $textAlt;
       font-weight: 700;
     }
   }
