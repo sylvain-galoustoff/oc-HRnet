@@ -9,6 +9,7 @@ body,
 #root,
 #app {
   height: 100%;
+  overflow: hidden;
 }
 
 html {
@@ -37,12 +38,13 @@ main {
 .main-content {
   padding: $marge*6;
   height: calc(100% - 90px);
+  overflow-y: auto;
 }
 
 header,
 #main-header {
   height: 90px;
-  padding: 25px;
+  padding: $marge*6;
   display: flex;
   align-items: center;
 }
@@ -211,4 +213,88 @@ nav {
 
 .toast-body {
   line-height: 1.2;
+}
+
+/* EMPLOYEES */
+#employees-content {
+  background-color: $bg;
+  padding-top: 0;
+}
+
+#employee-table {
+
+  .toolbar,
+  thead {
+    position: sticky;
+    top: 0;
+  }
+
+  .toolbar {
+    height: 95px;
+    @include card;
+    padding: 0 $marge*4;
+  }
+
+  .tool {
+    span {
+      color: $textAlt;
+      font-weight: 700;
+    }
+  }
+
+  .table-pagination {
+    color: $textAlt;
+  }
+
+  .page-button {
+    @include trans;
+
+    &:hover {
+      color: $text;
+    }
+
+    &.active {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+
+  thead {
+    top: 95px;
+    background-color: $bg;
+  }
+
+  .column-label {
+    font-weight: 700;
+    color: $text;
+  }
+
+  tbody {
+    tr {
+      overflow: hidden;
+    }
+
+    tr:nth-child(odd) {
+      background-color: darken($bg, 5%);
+    }
+
+    tr:nth-child(even) {
+      background-color: $bgAlt;
+    }
+
+    tr:first-child {
+      border-top-left-radius: $corner;
+      border-top-right-radius: $corner;
+    }
+
+    tr:last-child {
+      border-bottom-left-radius: $corner;
+      border-bottom-right-radius: $corner;
+    }
+
+    td {
+      padding: $marge*4 $marge;
+    }
+  }
+
 }
