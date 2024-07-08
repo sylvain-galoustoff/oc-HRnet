@@ -49,7 +49,7 @@ select {
   font-size: 1rem;
   font-weight: 700;
   background-color: rgba($textAlt, .15);
-  border: 2px solid $textAlt;
+  border: 2px solid $borderColor;
   border-radius: $corner;
   padding: $marge*4 $marge*6;
   color: $textAlt;
@@ -70,7 +70,7 @@ select {
 .addon {
   padding: 0 $marge*2;
   background-color: rgba($textAlt, .15);
-  border: 2px solid $textAlt;
+  border: 2px solid $borderColor;
   @include trans;
 }
 
