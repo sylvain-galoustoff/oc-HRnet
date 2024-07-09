@@ -1,7 +1,9 @@
 import { DataTable } from "supergalactic-uikit";
-import employees from "../../data/Employees";
+import { useSelector } from "react-redux";
 
 function Employees() {
+  const employees = useSelector((state) => state.employees.list);
+
   return (
     <main>
       <div id="main-header">
