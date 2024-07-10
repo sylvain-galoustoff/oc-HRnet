@@ -12,8 +12,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("dispatch");
     dispatch(setMock(employees));
-  }, []);
+  }, [employees]);
 
   return (
     <div id="app">

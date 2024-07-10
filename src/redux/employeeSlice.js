@@ -12,6 +12,7 @@ export const employeeSlice = createSlice({
       state.list.push(action.payload);
     },
     setMock: (state, action) => {
+      console.log("setMock");
       state.list = action.payload;
     },
   },

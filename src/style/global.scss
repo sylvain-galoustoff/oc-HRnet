@@ -147,7 +147,8 @@ nav {
 }
 
 /* TOASTER */
-.toaster {
+#toaster {
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 300px;
@@ -163,6 +164,11 @@ nav {
 
 .toast {
   @include card;
+
+  .toast-body {
+    color: $text;
+    line-height: 1.25;
+  }
 
   &.danger {
     .toast-header {
