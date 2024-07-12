@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import App from "./routes/App.jsx";
 import "./style/index.scss";
-import { ToasterProvider } from "supergalactic-uikit";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
