@@ -11,7 +11,7 @@ import { Toaster, useToastsList } from "supergalactic-uikit";
 
 function App() {
   const dispatch = useDispatch();
-  const toastList = useToastsList();
+  const { toastList, removeToast } = useToastsList();
 
   useEffect(() => {
     dispatch(setMock(employees));
@@ -25,7 +25,9 @@ function App() {
         <Route path="/" element={<AddEmployee />} />
         <Route path="/employees" element={<Employees />} />
       </Routes>
-      <Toaster toastsList={toastList} toasterId="toaster" animation="fromBottom" />
+      {toastList.length > 0 && (
+        <Toaster toastsList={toastList} toasterId="toaster" animation="fromBottom" onRemoveToast={removeToast} />
+      )}
     </div>
   );
 }
