@@ -55,6 +55,17 @@ function AddEmployee() {
     const formCopy = { ...form };
     formCopy.id = Date.now();
     dispatch(addEmployee(formCopy));
+
+    const toastEvent = new CustomEvent("addToast", {
+      detail: {
+        show: true,
+        type: "success",
+        message: "Message du toast",
+      },
+    });
+
+    // Dispatch l'événement
+    window.dispatchEvent(toastEvent);
   };
 
   return (
