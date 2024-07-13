@@ -7,28 +7,15 @@ import Navbar from "../components/Navbar/Navbar";
 import { useDispatch } from "react-redux";
 import employees from "../data/Employees";
 import { setMock } from "../redux/employeeSlice";
-import { Toaster } from "supergalactic-uikit";
+import { Toaster, useToastsList } from "supergalactic-uikit";
 
 function App() {
   const dispatch = useDispatch();
-  const [toastList, setToastList] = useState([]);
+  const toastList = useToastsList();
 
   useEffect(() => {
     dispatch(setMock(employees));
   }, [employees]);
-
-  useEffect(() => {
-    const handleAddToast = (event) => {
-      const newToast = event.detail;
-      setToastList((prevToastList) => [...prevToastList, newToast]);
-    };
-
-    window.addEventListener("addToast", handleAddToast);
-
-    return () => {
-      window.removeEventListener("addToast", handleAddToast);
-    };
-  }, []);
 
   return (
     <div id="app">
