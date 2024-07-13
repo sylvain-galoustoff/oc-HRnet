@@ -1,17 +1,17 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import AddEmployee from "./Employees/AddEmployee";
 import Employees from "./Employees/Employees";
 import NotFound from "./NotFound/NotFound";
 import Navbar from "../components/Navbar/Navbar";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import employees from "../data/Employees";
 import { setMock } from "../redux/employeeSlice";
-import { Toaster } from "supergalactic-uikit";
+import { Toaster, useToastsList } from "supergalactic-uikit";
 
 function App() {
   const dispatch = useDispatch();
-  const toastsList = useSelector((state) => state.toasts.toasts);
+  const { toastList, removeToast } = useToastsList();
 
   useEffect(() => {
     dispatch(setMock(employees));
@@ -25,7 +25,9 @@ function App() {
         <Route path="/" element={<AddEmployee />} />
         <Route path="/employees" element={<Employees />} />
       </Routes>
-      <Toaster toastsList={toastsList} animation="fromBottom" toasterId="toaster" />
+      {toastList.length > 0 && (
+        <Toaster toastsList={toastList} toasterId="toaster" animation="fromBottom" onRemoveToast={removeToast} />
+      )}
     </div>
   );
 }

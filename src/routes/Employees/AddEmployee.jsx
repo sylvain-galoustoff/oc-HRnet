@@ -56,11 +56,8 @@ function AddEmployee() {
     const formCopy = { ...form };
     formCopy.id = Date.now();
     dispatch(addEmployee(formCopy));
-    sendToast({
-      toastId: Date.now(),
-      type: "success",
-      message: `Employee ${formCopy.firstname} ${formCopy.lastname} added to database.`,
-    });
+
+    sendToast("success", "Message du toast via hook");
   };
 
   return (
