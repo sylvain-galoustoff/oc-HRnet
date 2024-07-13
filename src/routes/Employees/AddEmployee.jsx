@@ -3,7 +3,7 @@ import { IoCheckmark } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import unitedStates from "../../data/unitedStates";
-import { DataSearch } from "supergalactic-uikit";
+import { DataSearch, useToast } from "supergalactic-uikit";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../redux/employeeSlice";
 
@@ -21,6 +21,7 @@ function AddEmployee() {
     department: "sales",
   });
   const dispatch = useDispatch();
+  const sendToast = useToast();
 
   const inputChange = (e, target) => {
     setForm((prevState) => ({
@@ -56,16 +57,7 @@ function AddEmployee() {
     formCopy.id = Date.now();
     dispatch(addEmployee(formCopy));
 
-    const toastEvent = new CustomEvent("addToast", {
-      detail: {
-        show: true,
-        type: "success",
-        message: "Message du toast",
-      },
-    });
-
-    // Dispatch l'événement
-    window.dispatchEvent(toastEvent);
+    sendToast("success", "Message du toast via hook");
   };
 
   return (
