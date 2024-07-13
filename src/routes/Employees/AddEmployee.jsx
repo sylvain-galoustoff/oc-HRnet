@@ -57,7 +57,7 @@ function AddEmployee() {
     formCopy.id = Date.now();
     dispatch(addEmployee(formCopy));
     sendToast({
-      show: true,
+      toastId: Date.now(),
       type: "success",
       message: `Employee ${formCopy.firstname} ${formCopy.lastname} added to database.`,
     });

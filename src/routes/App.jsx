@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<AddEmployee />} />
         <Route path="/employees" element={<Employees />} />
       </Routes>
-      <Toaster toastsList={toastsList} toasterId="toaster" />
+      <Toaster toastsList={toastsList} animation="fromBottom" toasterId="toaster" />
     </div>
   );
 }
