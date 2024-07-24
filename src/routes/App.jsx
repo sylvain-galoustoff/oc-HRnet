@@ -26,7 +26,12 @@ function App() {
         <Route path="/employees" element={<Employees />} />
       </Routes>
       {toastList.length > 0 && (
-        <Toaster toastsList={toastList} toasterId="toaster" animation="fromBottom" onRemoveToast={removeToast} />
+        <Toaster
+          toastsList={toastList}
+          toasterId="toaster"
+          animation="fromBottom"
+          onRemoveToast={removeToast}
+        />
       )}
     </div>
   );
