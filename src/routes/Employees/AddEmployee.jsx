@@ -53,11 +53,23 @@ function AddEmployee() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    const formCopy = { ...form };
-    formCopy.id = Date.now();
-    dispatch(addEmployee(formCopy));
 
-    sendToast("success", "Message du toast via hook");
+    if (form.firstname.length === 0 && form.lastname.length === 0) {
+      sendToast("warning", `"First name" and "Last name" fields are required !`);
+    } else if (form.firstname.length === 0) {
+      sendToast("warning", `"First name" field is required !`);
+    } else if (form.lastname.length === 0) {
+      sendToast("warning", `"Last name" field is required !`);
+    } else {
+      const formCopy = { ...form };
+      formCopy.id = Date.now();
+      dispatch(addEmployee(formCopy));
+
+      sendToast(
+        "success",
+        `${formCopy.firstname} ${formCopy.lastname} added to "Employees" database.`
+      );
+    }
   };
 
   return (
@@ -72,7 +84,7 @@ function AddEmployee() {
               <legend>Identity</legend>
               <div className="form-group-inline">
                 <div className="form-group">
-                  <label htmlFor="firstname">First name</label>
+                  <label htmlFor="firstname">First name *</label>
                   <input
                     type="text"
                     id="firstname"
@@ -81,12 +93,21 @@ function AddEmployee() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="lastname">Last name</label>
-                  <input type="text" id="lastname" onChange={(e) => inputChange(e, "lastname")} value={form.lastname} />
+                  <label htmlFor="lastname">Last name *</label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    onChange={(e) => inputChange(e, "lastname")}
+                    value={form.lastname}
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="birthdate">Date of birth</label>
-                  <DatePicker selected={form.birthdate} onChange={(date) => handleBirthdate(date)} id="birthdate" />
+                  <DatePicker
+                    selected={form.birthdate}
+                    onChange={(date) => handleBirthdate(date)}
+                    id="birthdate"
+                  />
                 </div>
               </div>
             </fieldset>
@@ -95,11 +116,21 @@ function AddEmployee() {
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="street">Street</label>
-                  <input type="text" id="street" onChange={(e) => inputChange(e, "street")} value={form.street} />
+                  <input
+                    type="text"
+                    id="street"
+                    onChange={(e) => inputChange(e, "street")}
+                    value={form.street}
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="city">City</label>
-                  <input type="text" id="city" onChange={(e) => inputChange(e, "city")} value={form.city} />
+                  <input
+                    type="text"
+                    id="city"
+                    onChange={(e) => inputChange(e, "city")}
+                    value={form.city}
+                  />
                 </div>
               </div>
               <div className="form-group-inline">
@@ -116,7 +147,12 @@ function AddEmployee() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="zipcode">Zip code</label>
-                  <input type="text" id="zipcode" onChange={(e) => inputChange(e, "zipcode")} value={form.zipcode} />
+                  <input
+                    type="text"
+                    id="zipcode"
+                    onChange={(e) => inputChange(e, "zipcode")}
+                    value={form.zipcode}
+                  />
                 </div>
               </div>
             </fieldset>
@@ -125,11 +161,19 @@ function AddEmployee() {
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="startdate">Start date</label>
-                  <DatePicker selected={form.startdate} onChange={(date) => handleStartDate(date)} id="startdate" />
+                  <DatePicker
+                    selected={form.startdate}
+                    onChange={(date) => handleStartDate(date)}
+                    id="startdate"
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="department">Department</label>
-                  <select onChange={(e) => inputChange(e, "department")} value={form.department} id="department">
+                  <select
+                    onChange={(e) => inputChange(e, "department")}
+                    value={form.department}
+                    id="department"
+                  >
                     <option value="sales">Sales</option>
                     <option value="marketing">Marketing</option>
                     <option value="engineering">Engineering</option>
